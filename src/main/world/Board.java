@@ -1,3 +1,5 @@
+package main.world;
+
 public class Board {
     Spot[][] boxes;
 

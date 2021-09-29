@@ -1,3 +1,5 @@
+package main.piece;
+
 public abstract class Piece {
 
     private boolean killed = false;
