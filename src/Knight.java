@@ -3,7 +3,7 @@ public class Knight extends Piece {
     {
         super(white);
     }
-
+#test
     @Override
     public boolean canMove(Board board, Spot start, Spot end)
     {
