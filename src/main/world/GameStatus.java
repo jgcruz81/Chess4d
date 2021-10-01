@@ -1,3 +1,5 @@
+package main.world;
+
 public enum GameStatus {
     ACTIVE,
     BLACK_WIN,

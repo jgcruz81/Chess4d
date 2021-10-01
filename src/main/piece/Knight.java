@@ -1,9 +1,15 @@
+package main.piece;
+
+import main.board.Board;
+import main.spot.Spot;
+
+
 public class Knight extends Piece {
     public Knight(boolean white)
     {
         super(white);
     }
-#test
+
     @Override
     public boolean canMove(Board board, Spot start, Spot end)
     {

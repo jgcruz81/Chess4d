@@ -1,3 +1,14 @@
+package main.world;
+
+import main.board.Board;
+import main.move.Move;
+import main.piece.King;
+import main.piece.Piece;
+import main.player.Player;
+import main.spot.Spot;
+
+import java.util.List;
+
 public class Game {
     private Player[] players;
     private Board board;
@@ -27,7 +38,7 @@ public class Game {
         return this.getStatus() != GameStatus.ACTIVE;
     }
 
-    public boolean getStatus()
+    public GameStatus getStatus()
     {
         return this.status;
     }
@@ -37,9 +48,7 @@ public class Game {
         this.status = status;
     }
 
-    public boolean playerMove(Player player, int startX,
-                              int startY, int endX, int endY)
-    {
+    public boolean playerMove(Player player, int startX, int startY, int endX, int endY) throws Exception {
         Spot startBox = board.getBox(startX, startY);
         Spot endBox = board.getBox(startY, endY);
         Move move = new Move(player, startBox, endBox);
@@ -63,8 +72,7 @@ public class Game {
         }
 
         // valid move?
-        if (!sourcePiece.canMove(board, move.getStart(),
-                move.getEnd())) {
+        if (!sourcePiece.canMove(board, move.getStart(), move.getEnd())) {
             return false;
         }
 
@@ -77,7 +85,7 @@ public class Game {
 
         // castling?
         if (sourcePiece != null && sourcePiece instanceof King
-                && sourcePiece.isCastlingMove()) {
+                && ((King) sourcePiece).isCastlingMove(move)) {
             move.setCastlingMove(true);
         }
 
@@ -86,7 +94,7 @@ public class Game {
 
         // move piece from the stat box to end box
         move.getEnd().setPiece(move.getStart().getPiece());
-        move.getStart.setPiece(null);
+        move.getStart().setPiece(null);
 
         if (destPiece != null && destPiece instanceof King) {
             if (player.isWhiteSide()) {
@@ -109,3 +117,4 @@ public class Game {
 
     }
 }
+

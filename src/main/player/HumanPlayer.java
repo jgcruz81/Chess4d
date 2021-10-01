@@ -1,3 +1,5 @@
+package main.player;
+
 public class HumanPlayer extends Player {
 
     public HumanPlayer(boolean whiteSide)

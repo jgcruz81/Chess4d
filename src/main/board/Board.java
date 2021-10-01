@@ -1,3 +1,11 @@
+package main.board;
+
+import main.piece.Bishop;
+import main.piece.Knight;
+import main.piece.Pawn;
+import main.piece.Rook;
+import main.spot.Spot;
+
 public class Board {
     Spot[][] boxes;
 
