@@ -5,20 +5,9 @@ import main.piece.Piece;
 import main.spot.Spot;
 
 public class Queen extends Piece {
-    private boolean castlingDone = false;
 
     public Queen(boolean white) {
         super(white);
-    }
-
-    public boolean isCastlingDone()
-    {
-        return this.castlingDone;
-    }
-
-    public void setCastlingDone(boolean castlingDone)
-    {
-        this.castlingDone = castlingDone;
     }
 
     @Override
@@ -37,21 +26,6 @@ public class Queen extends Piece {
             // being attacked if so return true
             return true;
         }
-
-        return this.isValidCastling(board, start, end);
-    }
-
-    private boolean isValidCastling(Board board,
-                                    Spot start, Spot end)
-    {
-
-        if (this.isCastlingDone()) {
-            return false;
-        }
-        else{
-            return true;
-        }
-
-        // Logic for returning true or false
+        return false;
     }
 }

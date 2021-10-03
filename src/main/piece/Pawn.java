@@ -5,26 +5,13 @@ import main.piece.Piece;
 import main.spot.Spot;
 
 public class Pawn extends Piece {
-    private boolean castlingDone = false;
 
-    public Pawn(boolean white)
-    {
+    public Pawn(boolean white) {
         super(white);
     }
 
-    public boolean isCastlingDone()
-    {
-        return this.castlingDone;
-    }
-
-    public void setCastlingDone(boolean castlingDone)
-    {
-        this.castlingDone = castlingDone;
-    }
-
     @Override
-    public boolean canMove(Board board, Spot start, Spot end)
-    {
+    public boolean canMove(Board board, Spot start, Spot end) {
         // we can't move the piece to a main.spot.Spot that
         // has a piece of the same color
         if (end.getPiece().isWhite() == this.isWhite()) {
@@ -39,19 +26,7 @@ public class Pawn extends Piece {
             return true;
         }
 
-        return this.isValidCastling(board, start, end);
-    }
-
-    private boolean isValidCastling(Board board,
-                                    Spot start, Spot end)
-    {
-
-        if (this.isCastlingDone()) {
-            return false;
-        }
-        return true;
-
-        // Logic for returning true or false
+        return false;
     }
 
 }
