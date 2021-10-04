@@ -10,11 +10,17 @@ import main.spot.Spot;
 import java.util.List;
 
 public class Game {
-    private Player[] players;
+    private Player[] players = new Player[2];
     private Board board;
-    private Player currentTurn;
+    public Player currentTurn;
     private GameStatus status;
-    private List<Move> movesPlayed;
+    //private List<Move> movesPlayed;
+
+    public Game(Player p1, Player p2){
+        this.board = new Board();
+        this.initialize(p1,p2);
+
+    }
 
     private void initialize(Player p1, Player p2)
     {
@@ -30,7 +36,7 @@ public class Game {
             this.currentTurn = p2;
         }
 
-        movesPlayed.clear();
+        //movesPlayed.clear();
     }
 
     public boolean isEnd()
@@ -90,7 +96,7 @@ public class Game {
         }
 
         // store the move
-        movesPlayed.add(move);
+        //movesPlayed.add(move);
 
         // move piece from the stat box to end box
         move.getEnd().setPiece(move.getStart().getPiece());

@@ -4,7 +4,7 @@ import main.piece.*;
 import main.spot.Spot;
 
 public class Board {
-    Spot[][] boxes;
+    Spot[][] boxes = new Spot[8][8];
 
     public Board()
     {
@@ -12,7 +12,7 @@ public class Board {
     }
 
     public Spot getBox(int x, int y) throws Exception {
-        
+
         if (x < 0 || x > 7 || y < 0 || y > 7) {
             throw new Exception("Index out of bound");
         }
