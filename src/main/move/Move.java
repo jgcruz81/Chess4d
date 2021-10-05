@@ -32,11 +32,11 @@ public class Move {
     }
 
     public Spot getStart() {
-        return null;
+        return this.start;
     }
 
     public Spot getEnd() {
-        return null;
+        return this.end;
     }
 
     public void setPieceKilled(Piece destPiece) {
