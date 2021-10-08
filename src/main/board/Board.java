@@ -3,6 +3,8 @@ package main.board;
 import main.piece.*;
 import main.spot.Spot;
 
+import java.util.Locale;
+
 public class Board {
     Spot[][] boxes = new Spot[8][8];
 
@@ -66,6 +68,54 @@ public class Board {
         for (int i = 2; i < 6; i++) {
             for (int j = 0; j < 8; j++) {
                 boxes[i][j] = new Spot(i, j, null);
+            }
+        }
+    }
+    /*
+    Prints out board with row being outer, column being inner.
+     */
+    public void printBoard(){
+        for(int i = 0; i < 8; i++){
+            for(int j = 0; j < 8; j++) {
+                if (boxes[i][j].getPiece() != null) {
+                    printPiece(boxes[i][j].getPiece());
+                } else {
+                    System.out.print('_');
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    /**
+     * Prints given piece by first char, while taking into account King and Knight.
+     * @param piece
+     */
+    public void printPiece(Piece piece) {
+        if(piece.toString().charAt(0) == 'K') {
+            //Check for King or Knight piece
+            if(piece.toString().equals("King")) {
+                if(piece.isWhite()){
+                    System.out.print("K");
+                } else {
+                    System.out.print("k");
+                }
+            //Knight
+            } else {
+                if(piece.isWhite()){
+                    System.out.print("N");
+                } else {
+                    System.out.print("n");
+                }
+            }
+        //rest of pieces
+        } else {
+            if (piece.isWhite()) {
+                System.out.print(piece.toString().charAt(0));
+            } else {
+                String placeholder = piece.toString();
+                placeholder = placeholder.toLowerCase(Locale.ROOT);
+                System.out.print(placeholder.charAt(0));
             }
         }
     }

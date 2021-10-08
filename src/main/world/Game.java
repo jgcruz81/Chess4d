@@ -36,6 +36,8 @@ public class Game {
             this.currentTurn = p2;
         }
 
+        this.setStatus(GameStatus.ACTIVE);
+
         //movesPlayed.clear();
     }
 
@@ -58,6 +60,7 @@ public class Game {
         Spot startBox = board.getBox(startX, startY);
         Spot endBox = board.getBox(startY, endY);
         Move move = new Move(player, startBox, endBox);
+        this.board.printBoard();
         return this.makeMove(move, player);
     }
 
@@ -101,6 +104,7 @@ public class Game {
         // move piece from the stat box to end box
         move.getEnd().setPiece(move.getStart().getPiece());
         move.getStart().setPiece(null);
+        this.board.printBoard();
 
         if (destPiece != null && destPiece instanceof King) {
             if (player.isWhiteSide()) {

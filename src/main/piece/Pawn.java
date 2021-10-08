@@ -7,7 +7,7 @@ import main.spot.Spot;
 public class Pawn extends Piece {
 
     public Pawn(boolean white) {
-        super(white);
+        super(white, "Pawn");
     }
 
     @Override

@@ -7,7 +7,7 @@ import main.spot.Spot;
 public class Knight extends Piece {
     public Knight(boolean white)
     {
-        super(white);
+        super(white, "Knight");
     }
 
     @Override

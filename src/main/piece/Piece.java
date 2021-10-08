@@ -7,9 +7,11 @@ public abstract class Piece {
 
     private boolean killed = false;
     private boolean white = false;
+    private String name;
 
-    public Piece(boolean white) {
+    public Piece(boolean white, String name) {
         this.setWhite(white);
+        this.name = name;
     }
 
     public boolean isWhite() {
@@ -33,4 +35,9 @@ public abstract class Piece {
     }
 
     public abstract boolean canMove(Board board, Spot start, Spot end);
+
+    @Override
+    public String toString () {
+        return this.name;
+    }
 }

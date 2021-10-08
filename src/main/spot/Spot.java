@@ -43,4 +43,5 @@ public class Spot {
     {
         this.y = y;
     }
+
 }
