@@ -71,11 +71,12 @@ public class Board {
             }
         }
     }
-    /*
-    Prints out board with row being outer, column being inner.
+
+    /**
+     * Prints out board with row being outer, column being inner.
      */
     public void printBoard(){
-        for(int i = 0; i < 8; i++){
+        for(int i = 7; i >= 0; i--){
             for(int j = 0; j < 8; j++) {
                 if (boxes[i][j].getPiece() != null) {
                     printPiece(boxes[i][j].getPiece());

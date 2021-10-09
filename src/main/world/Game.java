@@ -19,7 +19,7 @@ public class Game {
     public Game(Player p1, Player p2){
         this.board = new Board();
         this.initialize(p1,p2);
-
+        this.board.printBoard();
     }
 
     private void initialize(Player p1, Player p2)
@@ -58,9 +58,8 @@ public class Game {
 
     public boolean playerMove(Player player, int startX, int startY, int endX, int endY) throws Exception {
         Spot startBox = board.getBox(startX, startY);
-        Spot endBox = board.getBox(startY, endY);
+        Spot endBox = board.getBox(endX, endY);
         Move move = new Move(player, startBox, endBox);
-        this.board.printBoard();
         return this.makeMove(move, player);
     }
 

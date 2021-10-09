@@ -7,6 +7,7 @@ public abstract class Piece {
 
     private boolean killed = false;
     private boolean white = false;
+    private boolean moved = false;
     private String name;
 
     public Piece(boolean white, String name) {
