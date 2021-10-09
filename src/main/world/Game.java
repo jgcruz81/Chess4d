@@ -70,11 +70,11 @@ public class Game {
             return false;
         }
 
-        // valid player
+        // if not current turn player
         if (player != currentTurn) {
             return false;
         }
-
+        //if not your piece
         if (sourcePiece.isWhite() != player.isWhiteSide()) {
             return false;
         }

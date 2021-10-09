@@ -18,14 +18,29 @@ public class Pawn extends Piece {
             return false;
         }
 
-        int x = Math.abs(start.getX() - end.getX());
-        int y = Math.abs(start.getY() - end.getY());
-        if (x + y == 1) {
-            // check if this move will not result in the king
-            // being attacked if so return true
-            return true;
+        //check to see if white moves in positive direction
+        int y = end.getY() - start.getY();
+        if(this.isWhite() && y < 0){
+            return false;
+        }
+        //check to see if black moves in negative direction
+        if(!this.isWhite() && y > 0)  {
+            return false;
         }
 
+        int x = Math.abs(start.getX() - end.getX());
+        y = Math.abs(start.getY() - end.getY());
+        //check to
+        // check if this move will NOT result in the king
+        // being attacked if so return true
+        if (!this.getHasMoved() && y == 2 && x == 0 && !board.kingInDanger()) {
+            this.setHasMoved();
+            return true;
+        }
+        if (((y == 1 && x == 0) || x + y == 2 ) && !board.kingInDanger()) {
+            this.setHasMoved();
+            return true;
+        }
         return false;
     }
 

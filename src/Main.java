@@ -34,7 +34,7 @@ public class Main {
                     int b = Character.getNumericValue(move.charAt(1));
                     int c = Character.getNumericValue(move.charAt(2));
                     int d = Character.getNumericValue(move.charAt(3));
-                    turn = !game.playerMove(mover, b, a, d, c);
+                    turn = !game.playerMove(mover, a, b, c, d);
                 }
 
                 if (mover == player1) {

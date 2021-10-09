@@ -7,7 +7,7 @@ public abstract class Piece {
 
     private boolean killed = false;
     private boolean white = false;
-    private boolean moved = false;
+    private boolean hasMoved = false;
     private String name;
 
     public Piece(boolean white, String name) {
@@ -24,6 +24,12 @@ public abstract class Piece {
     {
         this.white = white;
     }
+
+    public void setHasMoved() {
+        this.hasMoved = true;
+    }
+
+    public boolean getHasMoved() {return this.hasMoved;}
 
     public boolean isKilled()
     {
