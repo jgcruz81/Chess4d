@@ -31,11 +31,13 @@ public class Bishop extends Piece {
             return false;
         }
 
+        // check if move is valid for bishop
+        // check if this move will not result in the king being attacked
+        // if so return true
         int x = Math.abs(start.getX() - end.getX());
         int y = Math.abs(start.getY() - end.getY());
         if (x + y == 1) {
-            // check if this move will not result in the king
-            // being attacked if so return true
+
             return true;
         }
 

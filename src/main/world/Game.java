@@ -92,10 +92,10 @@ public class Game {
         }
 
         // castling?
-        if (sourcePiece != null && sourcePiece instanceof King
-                && ((King) sourcePiece).isCastlingMove(move)) {
-            move.setCastlingMove(true);
-        }
+//        if (sourcePiece != null && sourcePiece instanceof King
+//                && ((King) sourcePiece).isCastlingMove(move)) {
+//            move.setCastlingMove(true);
+//        }
 
         // store the move
         //movesPlayed.add(move);

@@ -1,26 +1,14 @@
 package main.piece;
 
 import main.board.Board;
-import main.move.Move;
 import main.piece.Piece;
 import main.spot.Spot;
 
 public class King extends Piece {
-    private boolean castlingDone = false;
 
     public King(boolean white)
     {
         super(white,"King");
-    }
-
-    public boolean isCastlingDone()
-    {
-        return this.castlingDone;
-    }
-
-    public void setCastlingDone(boolean castlingDone)
-    {
-        this.castlingDone = castlingDone;
     }
 
     @Override
@@ -32,33 +20,29 @@ public class King extends Piece {
             return false;
         }
 
+        //check to see if move is valid for king
+        // check if this move will not result in the king being attacked
+        // if so return true
         int x = Math.abs(start.getX() - end.getX());
         int y = Math.abs(start.getY() - end.getY());
-        if (x + y == 1) {
-            // check if this move will not result in the king
-            // being attacked if so return true
+        if (x + y == 1 && !board.kingInDanger()) {
+            this.setHasMoved();
             return true;
         }
-
-        return this.isValidCastling(board, start, end);
+        //return this.isValidCastling(board, start, end);
+        return false;
     }
 
-    private boolean isValidCastling(Board board,
-                                    Spot start, Spot end)
-    {
+    private boolean isValidCastling(Board board, Spot start, Spot end) {
 
-        if (this.isCastlingDone()) {
-            return false;
+        if (!this.getHasMoved() &&
+            end.getPiece() != null &&
+            end.getPiece().isWhite() == this.isWhite() &&
+            !end.getPiece().getHasMoved() &&
+            end.getPiece().toString().equals("Rook")
+        ) {
+            return true;
         }
-        return true;
-
-        // Logic for returning true or false
-    }
-
-    public boolean isCastlingMove(Move move)
-    {
-        // check if the starting and
-        // ending position are correct
-        return true;
+        return false;
     }
 }
