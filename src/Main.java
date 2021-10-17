@@ -3,6 +3,7 @@ import main.player.Player;
 import main.world.Game;
 import main.world.GameStatus;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -15,6 +16,8 @@ public class Main {
         HumanPlayer player2 = new HumanPlayer(false, "player2");
         Game game = new Game(player1, player2);
         Player mover = player1;
+
+        int[] myArray = new int[] { 1, 2, 3, 4, 5 };
 
         while(game.getStatus() == GameStatus.ACTIVE ){
             while(mover.equals(game.currentTurn)) {
